@@ -11,7 +11,6 @@ export class PostsService extends BaseService {
     assert.object(params, { required: true })
     assert.object(params.filter, { required: true })
     assert.id(params.filter.userId, { required: true })
-
     try {
       const response = await this.request({ auth: true }).get(`${this.entity}?${this.querystring(params)}`)
       const data = {
